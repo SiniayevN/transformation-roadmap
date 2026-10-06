@@ -20,4 +20,4 @@ This repository contains the digital transformation planning artifacts for Sepho
 * Published from the `main` branch root (`/root`.
 
 ## Version Control Workflow
-All feature contributions followed isolated branch workflows (`feat/*`), mandatory peer code review, and non-self-merged pull requests into `main`.
+All feature contributions followed isolated branch workflows (`feat/*`), mandatory peer code review, and non-self-merged pull requests into `main`. 
