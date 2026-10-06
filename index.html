@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sephora Digital Transformation Roadmap</title>
+
+  <style>
+    :root {
+      --black: #09090b;
+      --ink: #211b23;
+      --muted: #69616d;
+      --paper: #ffffff;
+      --bg: #f8f5f8;
+      --pink: #f23886;
+      --pink-light: #ff79ad;
+      --purple: #7a4be8;
+      --purple-light: #ad82ff;
+      --green: #00a889;
+      --line: #eee7ee;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 7% 3%, rgba(242,56,134,.14), transparent 24%),
+        radial-gradient(circle at 95% 12%, rgba(122,75,232,.13), transparent 26%),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, #080808 0%, #251421 54%, #72194d 100%);
+      color: #fff;
+      padding: 66px 24px 60px;
+      text-align: center;
+    }
+
+    header::before {
+      content: "DIGITAL TRANSFORMATION";
+      display: inline-block;
+      color: #ff80b5;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.6px;
+      margin-bottom: 14px;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      right: -100px;
+      top: -150px;
+      box-shadow:
+        0 0 0 55px rgba(255,255,255,.035),
+        0 0 0 110px rgba(255,255,255,.022);
+      pointer-events: none;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 13px;
+      font-size: clamp(35px, 5vw, 53px);
+      letter-spacing: -1.4px;
+    }
+
+    header p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #e7dce5;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 42px auto 58px;
+      padding: 0 24px;
+    }
+
+    .intro {
+      text-align: center;
+      margin: 0 auto 34px;
+      max-width: 850px;
+    }
+
+    .intro::before {
+      content: "PROJECT OVERVIEW";
+      display: block;
+      color: var(--pink);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+      margin-bottom: 8px;
+    }
+
+    .intro h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: -.5px;
+    }
+
+    .intro p {
+      max-width: 760px;
+      margin: auto;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(39,18,37,.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:first-child::before,
+    .card:nth-child(2)::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      height: 6px; width: 100%;
+    }
+
+    .card:first-child::before {
+      background: linear-gradient(90deg, var(--pink), var(--pink-light));
+    }
+
+    .card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 34px rgba(39,18,37,.13);
+    }
+
+    .card h3 {
+      margin: 3px 0 10px;
+      font-size: 22px;
+      letter-spacing: -.3px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+      min-height: 76px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 18px;
+      background: #0b0b0c;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .card:nth-child(2) .button {
+      background: linear-gradient(90deg, #6e3fe0, #965fe9);
+    }
+
+    .button:hover {
+      opacity: .88;
+      transform: translateY(-1px);
+    }
+
+    .content-section {
+      position: relative;
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px 32px;
+      margin-top: 22px;
+      box-shadow: 0 8px 26px rgba(39,18,37,.065);
+    }
+
+    .content-section h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: -.35px;
+    }
+
+    .content-section h2::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 4px;
+      margin-top: 9px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+    }
+
+    .content-section p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .team-member {
+      padding: 17px 18px;
+      margin: 12px 0;
+      border: 1px solid #eee7ee;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #fff, #fdfafd);
+    }
+
+    .team-member:nth-of-type(1) { border-left: 4px solid var(--pink); }
+    .team-member:nth-of-type(2) { border-left: 4px solid var(--purple); }
+    .team-member:nth-of-type(3) { border-left: 4px solid var(--green); }
+    .team-member:nth-of-type(4) { border-left: 4px solid #252127; }
+
+    .team-member h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .team-member p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .sources {
+      padding-left: 21px;
+      margin-bottom: 0;
+    }
+
+    .sources li {
+      margin-bottom: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .sources a {
+      color: #8c215b;
+      font-weight: 700;
+      word-break: break-word;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      text-align: center;
+      color: #8b838d;
+      padding: 0 20px 40px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      header { padding: 48px 20px 44px; }
+      .cards { grid-template-columns: 1fr; }
+      .card p { min-height: auto; }
+      .content-section { padding: 24px 21px; }
+      main { margin-top: 30px; padding: 0 17px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Sephora Digital Transformation Roadmap</h1>
+    <p>Transformation Roadmap · Governance RACI · QBR Dashboard</p>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <h2>Transformation Portfolio</h2>
+      <p>
+        This site brings together the team's transformation roadmap,
+        governance framework, and quarterly business review dashboard
+        for Sephora's digital transformation.
+      </p>
+    </section>
+
+    <section class="cards">
+
+      <article class="card">
+        <h3>Transformation Roadmap &amp; Governance RACI</h3>
+        <p>
+          Review the Crawl / Walk / Run transformation roadmap,
+          dependency logic, and governance decision-rights matrix.
+        </p>
+
+        <a class="button"
+           href="roadmap.html"
+           target="_blank">
+          View Roadmap &amp; RACI
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>QBR Dashboard</h3>
+        <p>
+          View the leadership dashboard for tracking transformation
+          health, phase progress, key metrics, and quarterly decisions.
+        </p>
+
+        <a class="button"
+           href="sephora_qbr_dashboard.html">
+          View QBR Dashboard
+        </a>
+      </article>
+
+    </section>
+
+
+    <section class="content-section">
+      <h2>Target Audience</h2>
+
+      <p>
+        Our target audience is the Sephora executive responsible for
+        digital transformation and customer experience. This leader
+        needs to decide how Sephora should prioritize investments in
+        customer data, omnichannel experiences, personalization, AR,
+        and AI while making sure each initiative has the right
+        foundation to succeed.
+      </p>
+    </section>
+
+
+    <section class="content-section">
+      <h2>Benefits</h2>
+
+      <p>
+        This project helps leadership understand which digital
+        initiatives should come first and which depend on earlier
+        capabilities. The Roadmap shows the recommended transformation
+        sequence, the RACI identifies ownership for important
+        governance decisions, and the QBR Dashboard provides a quick
+        way to monitor progress, adoption, and business outcomes.
+      </p>
+    </section>
+
+
+    <section class="content-section">
+      <h2>Novelty Statement</h2>
+
+      <p>
+        Our project goes beyond simply listing Sephora's digital
+        initiatives by showing how they depend on each other. We placed
+        customer data and unified customer profiles in the Crawl phase
+        because advanced personalization cannot work effectively
+        without a strong data foundation. We then placed omnichannel
+        experiences and Color iQ in Walk before moving into more
+        advanced capabilities such as Virtual Artist and AI-powered
+        personalized commerce.
+      </p>
+
+      <p>
+        Our dashboard also focuses on adoption and customer engagement,
+        not just whether a technology has been launched. This allows
+        Sephora leadership to see whether customers and employees are
+        actually using the new capabilities and whether they are
+        producing results. Together, the roadmap, RACI, and dashboard
+        provide a practical way to prioritize initiatives, assign
+        decision ownership, and track whether Sephora's digital
+        transformation is progressing successfully.
+      </p>
+    </section>
+
+
+    <section class="content-section">
+      <h2>Our Team</h2>
+
+      <div class="team-member">
+        <h3>Violetta Alekseeva — Roadmap Sequencer</h3>
+        <p>
+          Graduate student at USF studying AI in Business and Enterprise
+          Integration. Responsible for developing and sequencing the
+          Sephora transformation roadmap.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <h3>Nikita Siniayev — Governance Designer</h3>
+        <p>
+          Graduate student at USF studying AI in Business and Enterprise
+          Integration. Responsible for developing the governance RACI
+          and assigning decision ownership.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <h3>Vagif Mammadov — Dashboard Designer</h3>
+        <p>
+          Graduate student at USF studying AI in Business and Enterprise
+          Integration. Responsible for designing the QBR Dashboard and
+          selecting transformation metrics.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <h3>Kirill Ishchenko — Site Editor</h3>
+        <p>
+          Graduate student at USF studying AI in Business and Enterprise
+          Integration. Responsible for organizing the final GitHub Pages
+          site and maintaining consistency across the project.
+        </p>
+      </div>
+
+    </section>
+
+
+    <section class="content-section">
+      <h2>Sources</h2>
+
+      <ul class="sources">
+
+        <li>
+          Harvard Digital Innovation and Transformation:
+          <a href="https://d3.harvard.edu/platform-digit/submission/sephora-how-to-thrive-as-a-retailer-in-the-digital-age/"
+             target="_blank">
+            Sephora: How to Thrive as a Retailer in the Digital Age
+          </a>
+        </li>
+
+        <li>
+          Harvard Business School Digital Initiative:
+          <a href="https://digital.hbs.edu/platform-digit/submission/sephora-blurring-the-line-between-digital-and-physical/index.html"
+             target="_blank">
+            Sephora: Blurring the Line Between Digital and Physical
+          </a>
+        </li>
+
+        <li>
+          Sephora:
+          <a href="https://www.sephora.com/beauty/about-us"
+             target="_blank">
+            About Us
+          </a>
+        </li>
+
+        <li>
+          Sephora Newsroom:
+          <a href="https://newsroom.sephora.com/sephora-app-in-chatgpt-brings-a-new-personalized-beauty-experience/?version=published"
+             target="_blank">
+            Sephora App in ChatGPT Brings a New Personalized Beauty Experience
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+  </main>
+
+
+  <footer>
+    Sephora Digital Transformation Project
+  </footer>
+
+</body>
+</html>
